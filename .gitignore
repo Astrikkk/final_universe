@@ -1,21 +1,21 @@
-# ---> Unity (project lives in SFproject/)
+# ---> Unity (project lives in My project/)
 .utmp/
-SFproject/[Ll]ibrary/
-SFproject/[Tt]emp/
-SFproject/[Oo]bj/
-SFproject/[Bb]uild/
-SFproject/[Bb]uilds/
-SFproject/[Ll]ogs/
-SFproject/[Uu]ser[Ss]ettings/
+My project/[Ll]ibrary/
+My project/[Tt]emp/
+My project/[Oo]bj/
+My project/[Bb]uild/
+My project/[Bb]uilds/
+My project/[Ll]ogs/
+My project/[Uu]ser[Ss]ettings/
 *.log
 
 *.blend1
 *.blend1.meta
 
-SFproject/[Mm]emoryCaptures/
-SFproject/[Rr]ecordings/
+My project/[Mm]emoryCaptures/
+My project/[Rr]ecordings/
 
-SFproject/[Aa]ssets/Plugins/Editor/JetBrains*
+My project/[Aa]ssets/Plugins/Editor/JetBrains*
 *.DotSettings.user
 
 # Visual Studio / Rider
@@ -57,16 +57,16 @@ crashlytics-build.properties
 InitTestScene*.unity*
 
 # Addressables
-SFproject/ServerData
-SFproject/[Aa]ssets/StreamingAssets/aa*
-SFproject/[Aa]ssets/AddressableAssetsData/link.xml*
-SFproject/[Aa]ssets/AddressableAssets_Temp*
-SFproject/[Aa]ssets/AddressableAssetsData/*/*.bin*
+My project/ServerData
+My project/[Aa]ssets/StreamingAssets/aa*
+My project/[Aa]ssets/AddressableAssetsData/link.xml*
+My project/[Aa]ssets/AddressableAssets_Temp*
+My project/[Aa]ssets/AddressableAssetsData/*/*.bin*
 
 # Visual Scripting
-SFproject/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db
-SFproject/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db.meta
-SFproject/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers
-SFproject/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers.meta
+My project/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db
+My project/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db.meta
+My project/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers
+My project/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers.meta
 
-SFproject/[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+My project/[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*

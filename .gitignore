@@ -1,0 +1,72 @@
+# ---> Unity (project lives in SFproject/)
+.utmp/
+SFproject/[Ll]ibrary/
+SFproject/[Tt]emp/
+SFproject/[Oo]bj/
+SFproject/[Bb]uild/
+SFproject/[Bb]uilds/
+SFproject/[Ll]ogs/
+SFproject/[Uu]ser[Ss]ettings/
+*.log
+
+*.blend1
+*.blend1.meta
+
+SFproject/[Mm]emoryCaptures/
+SFproject/[Rr]ecordings/
+
+SFproject/[Aa]ssets/Plugins/Editor/JetBrains*
+*.DotSettings.user
+
+# Visual Studio / Rider
+.vs/
+.gradle/
+ExportedObj/
+.consulo/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+sysinfo.txt
+mono_crash.*
+
+# Builds
+*.apk
+*.aab
+*.unitypackage
+*.unitypackage.meta
+*.app
+
+crashlytics-build.properties
+
+InitTestScene*.unity*
+
+# Addressables
+SFproject/ServerData
+SFproject/[Aa]ssets/StreamingAssets/aa*
+SFproject/[Aa]ssets/AddressableAssetsData/link.xml*
+SFproject/[Aa]ssets/AddressableAssets_Temp*
+SFproject/[Aa]ssets/AddressableAssetsData/*/*.bin*
+
+# Visual Scripting
+SFproject/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db
+SFproject/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db.meta
+SFproject/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers
+SFproject/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers.meta
+
+SFproject/[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*

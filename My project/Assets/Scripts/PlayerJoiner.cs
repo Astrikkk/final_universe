@@ -19,7 +19,6 @@ public class PlayerJoiner : MonoBehaviour
 
     private void Update()
     {
-        // Если игроков уже 2, отключаем ожидание
         if (manager.playerCount >= 2)
         {
             if (waitingForConfirm) CancelJoin();
@@ -28,92 +27,67 @@ public class PlayerJoiner : MonoBehaviour
 
         if (!waitingForConfirm)
         {
-            // 1. Проверка нажатия Options на геймпаде
             foreach (Gamepad gamepad in Gamepad.all)
             {
                 if (gamepad.startButton.wasPressedThisFrame)
                 {
+                    Debug.Log("1. Нажата кнопка Options!");
                     TryShowPrompt(gamepad);
                     break;
                 }
             }
-
-            // 2. ВРЕМЕННЫЙ ТЕСТ: проверка нажатия J на клавиатуре
-            if (Keyboard.current != null && Keyboard.current.jKey.wasPressedThisFrame)
-            {
-                TryShowPrompt(null); // null означает, что мы вызвали тест с клавиатуры
-            }
         }
         else
         {
-            // Таймер ожидания
             currentTimer -= Time.deltaTime;
             if (currentTimer <= 0f)
             {
+                Debug.Log("2. Таймер истек.");
                 CancelJoin();
                 return;
             }
 
-            // Подтверждение с геймпада
-            if (pendingGamepad != null)
+            if (pendingGamepad.startButton.wasPressedThisFrame || pendingGamepad.buttonSouth.wasPressedThisFrame)
             {
-                if (pendingGamepad.startButton.wasPressedThisFrame || pendingGamepad.buttonSouth.wasPressedThisFrame)
-                {
-                    ConfirmJoin();
-                }
-            }
-            // Подтверждение с клавиатуры (ТЕСТ)
-            else
-            {
-                if (Keyboard.current != null && Keyboard.current.jKey.wasPressedThisFrame)
-                {
-                    ConfirmJoin();
-                }
+                Debug.Log("2. Нажато подтверждение!");
+                ConfirmJoin();
             }
         }
     }
 
     private void TryShowPrompt(Gamepad gamepad)
     {
-        // Проверка: не занят ли геймпад Игроком 1
-        if (player1 != null && gamepad != null)
+        if (player1 != null)
         {
             PlayerInput p1Input = player1.GetComponent<PlayerInput>();
             if (p1Input != null && p1Input.currentControlScheme == "Gamepad")
             {
                 foreach (var device in p1Input.devices)
                 {
-                    if (device == gamepad) return;
+                    if (device == gamepad) 
+                    {
+                        Debug.Log("3. ОТКАЗ: Игрок 1 уже сидит на этом геймпаде.");
+                        return; 
+                    }
                 }
             }
         }
 
+        Debug.Log("3. Показываем панель!");
         pendingGamepad = gamepad;
         waitingForConfirm = true;
         currentTimer = confirmTimeout;
         
         if (joinPromptPanel != null) 
             joinPromptPanel.SetActive(true);
-            
-        Debug.Log("Панель появилась. Ждем подтверждения (Options, Прыжок или J).");
     }
 
     private void ConfirmJoin()
     {
+        Debug.Log("4. Создаем игрока...");
         if (manager.playerCount >= 2) return;
-
-        if (pendingGamepad != null)
-        {
-            manager.JoinPlayer(controlScheme: "Gamepad", pairWithDevice: pendingGamepad);
-        }
-        else
-        {
-            // Для теста создаем игрока на клавиатуре
-            manager.JoinPlayer(controlScheme: "Keyboard", pairWithDevice: Keyboard.current);
-        }
-
+        manager.JoinPlayer(controlScheme: "Gamepad", pairWithDevice: pendingGamepad);
         CancelJoin();
-        Debug.Log("Player 2 создан.");
     }
 
     private void CancelJoin()
@@ -122,7 +96,5 @@ public class PlayerJoiner : MonoBehaviour
         pendingGamepad = null;
         if (joinPromptPanel != null) 
             joinPromptPanel.SetActive(false);
-            
-        Debug.Log("Панель скрыта.");
     }
 }

@@ -15,25 +15,6 @@ public class PlayerSpawner : MonoBehaviour
 
         player2 = player;
         player.transform.position = player1.position + spawnOffset;
-
-        PlayerInput p1Input = player1.GetComponent<PlayerInput>();
-
-        // Проверяем: тот же геймпад у Игрока 2, что у Игрока 1?
-        bool sameDevice = false;
-        foreach (var d1 in p1Input.devices)
-        {
-            foreach (var d2 in player.devices)
-            {
-                if (d1 == d2) sameDevice = true;
-            }
-        }
-
-        if (sameDevice)
-        {
-            // Друг забрал твой геймпад — садим тебя на клавиатуру
-            p1Input.SwitchCurrentControlScheme("Keyboard", Keyboard.current);
-        }
-        // Иначе — ничего не делаем. Ты остаёшься на своём геймпаде.
     }
 
     private void Update()
